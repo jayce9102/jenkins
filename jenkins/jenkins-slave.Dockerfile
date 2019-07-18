@@ -13,10 +13,15 @@ RUN echo "${TIMEZONE}" > /etc/timezone \
     && mkdir -p /home/jenkins/.jenkins \
     && mkdir -p /home/jenkins/agent \
     && mkdir -p /usr/share/jenkins \
-    && mkdir -p /root/.kube
+    && mkdir -p /root/.kube \
+    && mv kubectl kubectl.bak \
+    && curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.3/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && sudo mv ./kubectl /usr/local/bin/kubectl \
+    && kubectl version \
 
 COPY java1.8 /usr/local/newhope/java1.8
-COPY kubectl /usr/local/bin/kubectl
+#COPY kubectl /usr/local/bin/kubectl
 COPY jenkins-slave /usr/local/bin/jenkins-slave
 COPY slave.jar /usr/share/jenkins
 

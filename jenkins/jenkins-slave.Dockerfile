@@ -30,7 +30,7 @@ RUN  mkdir /usr/java/jdk1.8.0_121/bin -p \
      &&curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg |apt-key add - \
      && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable" \
      && apt-get update -y \
-     && apt-get install -y docker-ce=17.09.1~ce-0~debian \
+     && apt-get install -y docker-ce=18.06.1~ce-0~debian \
      && sudo apt-get install -y subversion \
      && groupadd -g 10000 jenkins \
      && useradd -c "Jenkins user" -d $HOME -u 10000 -g 10000 -m jenkins \

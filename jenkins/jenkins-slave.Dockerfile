@@ -18,7 +18,7 @@ RUN echo "${TIMEZONE}" > /etc/timezone \
     && curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.3/bin/linux/amd64/kubectl \
     && chmod +x ./kubectl \
     && sudo mv ./kubectl /usr/local/bin/kubectl \
-    && kubectl version \
+    && kubectl version
 
 COPY java1.8 /usr/local/newhope/java1.8
 #COPY kubectl /usr/local/bin/kubectl
